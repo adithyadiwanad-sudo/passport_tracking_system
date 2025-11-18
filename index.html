@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Tracking System - Government of India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <h2>🇮🇳 Passport Seva</h2>
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#" class="nav__link" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav__link" data-page="track">Track Application</a></li>
+                    <li><a href="#" class="nav__link" data-page="login">Login</a></li>
+                    <li><a href="#" class="nav__link" data-page="register">Register</a></li>
+                    <li><a href="#" class="nav__link" data-page="admin-login">Admin</a></li>
+                </ul>
+            </div>
+            <div class="nav__user" id="nav-user" style="display: none;">
+                <span id="user-name"></span>
+                <button class="btn btn--secondary" id="logout-btn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Landing Page -->
+        <section id="home-page" class="page active">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero__content">
+                        <h1 class="hero__title">Track Your Passport Application</h1>
+                        <p class="hero__subtitle">Fast, Secure, and Reliable passport services by Government of India</p>
+                        <div class="hero__actions">
+                            <button class="btn btn--primary btn--lg" data-page="apply">Apply for Passport</button>
+                            <button class="btn btn--outline btn--lg" data-page="track">Track Application</button>
+                            <button class="btn btn--secondary btn--lg" data-page="admin-login">Admin Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="container">
+                    <div class="features__grid">
+                        <div class="feature">
+                            <div class="feature__icon">🔒</div>
+                            <h3>Secure</h3>
+                            <p>Your data is protected with industry-standard security measures</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature__icon">⚡</div>
+                            <h3>Fast</h3>
+                            <p>Quick processing and real-time status updates</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature__icon">✅</div>
+                            <h3>Reliable</h3>
+                            <p>Government-backed service you can trust</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Page -->
+        <section id="login-page" class="page">
+            <div class="container">
+                <div class="auth-form">
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Login to Your Account</h2>
+                            <form id="login-form">
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="login-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="login-password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="remember-me"> Remember me
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                                <p class="auth-link">Don't have an account? <a href="#" data-page="register">Register here</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Page -->
+        <section id="register-page" class="page">
+            <div class="container">
+                <div class="auth-form">
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Create New Account</h2>
+                            <form id="register-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="reg-firstname" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="reg-lastname" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="reg-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="reg-phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" id="reg-dob" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="reg-address" placeholder="Street Address" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">City</label>
+                                        <input type="text" class="form-control" id="reg-city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">State</label>
+                                        <select class="form-control" id="reg-state" required>
+                                            <option value="">Select State</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Pincode</label>
+                                        <input type="text" class="form-control" id="reg-pincode" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Country</label>
+                                        <input type="text" class="form-control" id="reg-country" value="India" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="reg-password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="reg-confirm-password" required>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Register</button>
+                                <p class="auth-link">Already have an account? <a href="#" data-page="login">Login here</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Track Application Page -->
+        <section id="track-page" class="page">
+            <div class="container">
+                <h2>Track Your Application</h2>
+                <div class="card">
+                    <div class="card__body">
+                        <form id="track-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Application ID</label>
+                                    <input type="text" class="form-control" id="track-id" placeholder="PSP-2024-AB123456" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" id="track-dob" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Track Application</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="track-results" class="track-results" style="display: none;">
+                    <div class="card">
+                        <div class="card__body">
+                            <div class="application-details">
+                                <h3>Application Details</h3>
+                                <div class="details-grid">
+                                    <div class="detail-item">
+                                        <strong>Application ID:</strong>
+                                        <span id="result-app-id"></span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Applicant Name:</strong>
+                                        <span id="result-name"></span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Application Type:</strong>
+                                        <span id="result-type"></span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Service Type:</strong>
+                                        <span id="result-service"></span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Submitted Date:</strong>
+                                        <span id="result-submitted"></span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Expected Delivery:</strong>
+                                        <span id="result-delivery"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status-section">
+                                <h3>Current Status</h3>
+                                <div class="status-badge" id="current-status"></div>
+                            </div>
+
+                            <div class="status-timeline">
+                                <h3>Status History</h3>
+                                <div id="status-history"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Dashboard -->
+        <section id="dashboard-page" class="page">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Welcome, <span id="dashboard-username"></span></h2>
+                    <button class="btn btn--primary" data-page="apply">Apply for New Passport</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Applications Submitted</h3>
+                        <div class="stat-number" id="stat-submitted">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>In Progress</h3>
+                        <div class="stat-number" id="stat-progress">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completed</h3>
+                        <div class="stat-number" id="stat-completed">0</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Recent Applications</h3>
+                        <div class="table-container">
+                            <table class="applications-table">
+                                <thead>
+                                    <tr>
+                                        <th>Application ID</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                        <th>Submitted Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="user-applications">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passport Application Form -->
+        <section id="apply-page" class="page">
+            <div class="container">
+                <div class="application-form">
+                    <div class="progress-bar">
+                        <div class="progress-step active" data-step="1">Personal Info</div>
+                        <div class="progress-step" data-step="2">Contact Details</div>
+                        <div class="progress-step" data-step="3">Passport Details</div>
+                        <div class="progress-step" data-step="4">Documents</div>
+                        <div class="progress-step" data-step="5">Review</div>
+                    </div>
+
+                    <form id="passport-application-form">
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step active" data-step="1">
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3>Personal Information</h3>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" class="form-control" id="app-firstname" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" id="app-lastname" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Date of Birth</label>
+                                            <input type="date" class="form-control" id="app-dob" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Gender</label>
+                                            <select class="form-control" id="app-gender" required>
+                                                <option value="">Select Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Place of Birth</label>
+                                        <input type="text" class="form-control" id="app-pob" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Contact Details -->
+                        <div class="form-step" data-step="2">
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3>Contact Details & Address</h3>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="app-email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Mobile Number</label>
+                                            <input type="tel" class="form-control" id="app-mobile" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="app-address" required>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">City</label>
+                                            <input type="text" class="form-control" id="app-city" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">State</label>
+                                            <select class="form-control" id="app-state" required>
+                                                <option value="">Select State</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Pincode</label>
+                                            <input type="text" class="form-control" id="app-pincode" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Country</label>
+                                            <input type="text" class="form-control" id="app-country" value="India" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Passport Details -->
+                        <div class="form-step" data-step="3">
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3>Passport Type & Service</h3>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Passport Type</label>
+                                            <select class="form-control" id="app-passport-type" required>
+                                                <option value="">Select Type</option>
+                                                <option value="Fresh">Fresh Passport</option>
+                                                <option value="Reissue">Reissue of Passport</option>
+                                                <option value="Renewal">Renewal of Passport</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Service Type</label>
+                                            <select class="form-control" id="app-service-type" required>
+                                                <option value="">Select Service</option>
+                                                <option value="Normal">Normal (30 days)</option>
+                                                <option value="Tatkaal">Tatkaal (7 days)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Reason for Passport</label>
+                                        <select class="form-control" id="app-reason" required>
+                                            <option value="">Select Reason</option>
+                                            <option value="Business">Business</option>
+                                            <option value="Tourism">Tourism</option>
+                                            <option value="Education">Education</option>
+                                            <option value="Employment">Employment</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Documents -->
+                        <div class="form-step" data-step="4">
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3>Document Upload</h3>
+                                    <div class="document-upload">
+                                        <div class="document-item">
+                                            <label class="form-label">Identity Proof</label>
+                                            <input type="file" class="form-control" id="doc-identity" accept=".pdf,.jpg,.jpeg,.png">
+                                        </div>
+                                        <div class="document-item">
+                                            <label class="form-label">Address Proof</label>
+                                            <input type="file" class="form-control" id="doc-address" accept=".pdf,.jpg,.jpeg,.png">
+                                        </div>
+                                        <div class="document-item">
+                                            <label class="form-label">Date of Birth Proof</label>
+                                            <input type="file" class="form-control" id="doc-dob" accept=".pdf,.jpg,.jpeg,.png">
+                                        </div>
+                                        <div class="document-item">
+                                            <label class="form-label">Photograph</label>
+                                            <input type="file" class="form-control" id="doc-photo" accept=".jpg,.jpeg,.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Review -->
+                        <div class="form-step" data-step="5">
+                            <div class="card">
+                                <div class="card__body">
+                                    <h3>Review Your Application</h3>
+                                    <div id="application-review"></div>
+                                    <div class="form-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="terms-accept" required>
+                                            I accept the terms and conditions
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn--secondary" id="prev-step" style="display: none;">Previous</button>
+                            <button type="button" class="btn btn--primary" id="next-step">Next</button>
+                            <button type="submit" class="btn btn--primary" id="submit-application" style="display: none;">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Login Page -->
+        <section id="admin-login-page" class="page">
+            <div class="container">
+                <div class="auth-form">
+                    <div class="card">
+                        <div class="card__body">
+                            <h2>Admin Login</h2>
+                            <form id="admin-login-form">
+                                <div class="form-group">
+                                    <label class="form-label">Admin Email</label>
+                                    <input type="email" class="form-control" id="admin-email" value="admin@passport.gov.in" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="admin-password" value="admin123" required>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Admin Login</button>
+                                <p class="auth-link"><a href="#" data-page="home">Back to Home</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard -->
+        <section id="admin-page" class="page">
+            <div class="container">
+                <div class="admin-header">
+                    <h2>Admin Dashboard</h2>
+                    <div class="admin-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Applications</span>
+                            <span class="stat-value" id="admin-total">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Pending Reviews</span>
+                            <span class="stat-value" id="admin-pending">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Completed Today</span>
+                            <span class="stat-value" id="admin-completed">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-controls">
+                    <input type="text" class="form-control" id="admin-search" placeholder="Search by Application ID or Name">
+                    <select class="form-control" id="admin-filter">
+                        <option value="">All Status</option>
+                    </select>
+                </div>
+
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Applications Management</h3>
+                        <div class="table-container">
+                            <table class="applications-table">
+                                <thead>
+                                    <tr>
+                                        <th>Application ID</th>
+                                        <th>Applicant Name</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                        <th>Submitted Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-applications">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Contact Information</h4>
+                    <p>📞 1800-258-1800 (Toll Free)</p>
+                    <p>✉️ support@passportindia.gov.in</p>
+                    <p>🕒 Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="footer__section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" data-page="track">Track Application</a></li>
+                        <li><a href="#" data-page="apply">Apply for Passport</a></li>
+                        <li><a href="#" data-page="login">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>Help & Support</h4>
+                    <ul>
+                        <li><a href="#" target="_blank">FAQs</a></li>
+                        <li><a href="#" target="_blank">User Manual</a></li>
+                        <li><a href="#" target="_blank">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 Government of India. All rights reserved. | Ministry of External Affairs</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Application Details -->
+    <div id="application-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Application Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Application details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <select class="form-control" id="status-update">
+                    <option value="">Update Status</option>
+                </select>
+                <button class="btn btn--primary" id="update-status-btn">Update Status</button>
+                <button class="btn btn--secondary modal-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Success!</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="success-message"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn--primary modal-close">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -31,4 +31,3 @@ This project was built to practice and demonstrate:
 - UI design
 - Basic workflow tracking logic
 
-## Folder Structure
